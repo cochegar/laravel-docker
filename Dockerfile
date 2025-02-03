@@ -30,8 +30,10 @@ RUN composer clear-cache
 RUN composer install --no-interaction
 
 # Установка Node.js и npm
-RUN curl -sL https://deb.nodesource.com/setup_16.x | bash - \
+RUN curl -sL https://deb.nodesource.com/setup_18.x | bash - \
     && apt-get install -y nodejs    
 
 # Установка Node.js зависимостей
 RUN npm install
+
+#CMD php artisan migrate && php artisan serve --host=0.0.0.0 --port=80
